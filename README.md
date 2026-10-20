@@ -18,6 +18,7 @@ The choices I have made while planning the project were:
 - Typescript config
   - Just go for a basic config now. But always with `strict` mode enabled and jsx support.
   - We can always tweak later when we need it.
+- No framework other than React itself. I just want to show a basic React app. Doing it in Nextjs, React-router or Tanstack router would add unnecessary complexity for what I want to show for this assessment.
 
 ### Form
 
@@ -84,3 +85,4 @@ The choices I have made while planning the project were:
 
 - Use plain CSS. The possibilities with the new CSS api's are endless. However, development speed with TailwindCSS is fast. As a purist I like plain CSS a lot and I was a bit against TailwindCSS. But when I tried I saw the benefits of it with theming, onboarding new devs and small footprint of the CSS itself.
 - Lookup address based on postal code
+- For SEO and better performance and smaller bundles it would be better to server side render the form.

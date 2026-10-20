@@ -1,14 +1,14 @@
 ## 1. Foundation A — Setup & Run (8 tasks)
 
-- [ ] 1.1 Initialize Vite project with `pnpm create vite@latest . -- --template react-ts`
-- [ ] 1.2 Install runtime dependencies: `pnpm add react-hook-form @hookform/resolvers/zod`
-- [ ] 1.3 Install dev dependencies: `pnpm add -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom`
-- [ ] 1.4 Configure Vitest (jsdom environment, jest-dom matchers, setup file)
-- [ ] 1.5 Install and configure Tailwind CSS v3
-- [ ] 1.6 Configure TypeScript path aliases (`@/` → `src/`)
-- [ ] 1.7 Create directory structure: `src/lib/`, `src/components/`, `src/context/`, `src/hooks/`, `src/types/`, `src/schemas/`
-- [ ] 1.8 Copy `data/insurance-plans.json` to `public/api/insurance-plans.json`
-  → **Testable in browser**: `pnpm dev` loads empty Vite app, console passes, Vitest runs green on empty suite.
+- [x] 1.1 Initialize Vite project with `pnpm create vite@latest . -- --template react-ts`
+- [x] 1.2 Install runtime dependencies: `pnpm add react-hook-form @hookform/resolvers/zod`
+- [x] 1.3 Install dev dependencies: `pnpm add -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom`
+- [x] 1.4 Configure Vitest (jsdom environment, jest-dom matchers, setup file)
+- [x] 1.5 Install and configure Tailwind CSS v4
+- [x] 1.6 Configure TypeScript path aliases (`@/` → `src/`)
+- [x] 1.7 Create directory structure: `src/lib/`, `src/components/`, `src/context/`, `src/hooks/`, `src/types/`, `src/schemas/`
+- [x] 1.8 Copy `data/insurance-plans.json` to `public/api/insurance-plans.json`
+      → **Testable in browser**: `pnpm dev` loads empty Vite app, console passes, Vitest runs green on empty suite.
 
 ## 2. Foundation B — Types, Schemas & Secure Input (20 tasks)
 
