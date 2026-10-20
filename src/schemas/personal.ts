@@ -42,3 +42,5 @@ export const personalSchema = z.object({
     .min(1, 'Adres is verplicht')
     .max(200, 'Adres is te lang (max 200 tekens)'),
 })
+
+export type PersonalInfo = z.infer<typeof personalSchema>

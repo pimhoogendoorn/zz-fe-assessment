@@ -1,10 +1,7 @@
-export interface PersonalInfo {
-  firstname: string
-  lastname: string
-  dateOfBirth: string
-  email: string
-  address: string
-}
+export { personalSchema } from '@/schemas/personal'
+export { FormStateSchema, ProductSchema } from '@/schemas/form-state'
+export type { PersonalInfo } from '@/schemas/personal'
+export type { FormState } from '@/schemas/form-state'
 
 export interface Plan {
   id: string
@@ -18,12 +15,6 @@ export interface Addon {
   name: string
   price: number
   description: string
-}
-
-export interface FormState {
-  personalInfo: PersonalInfo | null
-  basicInsurance: Plan | null
-  addons: Addon[]
 }
 
 export interface InsuranceApiResponse {
