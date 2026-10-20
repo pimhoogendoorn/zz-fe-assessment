@@ -86,3 +86,4 @@ The choices I have made while planning the project were:
 - Use plain CSS. The possibilities with the new CSS api's are endless. However, development speed with TailwindCSS is fast. As a purist I like plain CSS a lot and I was a bit against TailwindCSS. But when I tried I saw the benefits of it with theming, onboarding new devs and small footprint of the CSS itself.
 - Lookup address based on postal code
 - For SEO and better performance and smaller bundles it would be better to server side render the form.
+- Add date-fns or a similar package to make date calculations more readable and easier.

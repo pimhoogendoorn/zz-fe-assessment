@@ -12,28 +12,28 @@
 
 ## 2. Foundation B — Types, Schemas & Secure Input (20 tasks)
 
-- [ ] 2.9 Define TypeScript interfaces: `PersonalInfo`, `Plan`, `Addon`, `FormState`, `InsuranceApiResponse`
-- [ ] 2.10 Write test: `personalSchema` rejects empty firstname
-- [ ] 2.11 Write test: `personalSchema` rejects empty lastname
-- [ ] 2.12 Write test: `personalSchema` rejects empty dateOfBirth
-- [ ] 2.13 Write test: `personalSchema` rejects empty email
-- [ ] 2.14 Write test: `personalSchema` rejects empty address
-- [ ] 2.15 Write test: `personalSchema` rejects invalid email format
-- [ ] 2.16 Write test: `personalSchema` rejects future dates for dateOfBirth
-- [ ] 2.17 Write test: `personalSchema` rejects date of birth less than 18 years ago
-- [ ] 2.17 Write test: `personalSchema` rejects invalid date strings
-- [ ] 2.18 Write test: `personalSchema` accepts valid data for all fields
-- [ ] 2.19 Implement `personalSchema` — make all schema tests pass
-- [ ] 2.20 Write test: `personalSchema.parse()` returns typed `PersonalInfo`
-- [ ] 2.21 Write test: `personalSchema` trims whitespace before validation (e.g., `"  John  "` → `"John"`)
-- [ ] 2.22 Write test: `personalSchema` rejects firstname over 50 chars (`.max(50)`)
-- [ ] 2.23 Write test: `personalSchema` rejects lastname over 50 chars (`.max(50)`)
-- [ ] 2.24 Write test: `personalSchema` rejects address over 200 chars (`.max(200)`)
-- [ ] 2.25 Write test: `personalSchema` rejects email over 254 chars (`.max(254)`)
-- [ ] 2.26 Write test: `FormStateSchema` accepts valid FormState with selections
-- [ ] 2.27 Write test: `FormStateSchema` rejects FormState without basic insurance selection
-- [ ] 2.28 Implement `FormStateSchema` — make all schema tests pass
-  → **Testable in browser**: `pnpm dev` loads app with Zod schemas importable, no build errors, all unit tests green (run `pnpm test`).
+- [x] 2.9 Define TypeScript interfaces: `PersonalInfo`, `Plan`, `Addon`, `FormState`, `InsuranceApiResponse`
+- [x] 2.10 Write test: `personalSchema` rejects empty firstname
+- [x] 2.11 Write test: `personalSchema` rejects empty lastname
+- [x] 2.12 Write test: `personalSchema` rejects empty dateOfBirth
+- [x] 2.13 Write test: `personalSchema` rejects empty email
+- [x] 2.14 Write test: `personalSchema` rejects empty address
+- [x] 2.15 Write test: `personalSchema` rejects invalid email format
+- [x] 2.16 Write test: `personalSchema` rejects future dates for dateOfBirth
+- [x] 2.17 Write test: `personalSchema` rejects date of birth less than 18 years ago
+- [x] 2.17 Write test: `personalSchema` rejects invalid date strings
+- [x] 2.18 Write test: `personalSchema` accepts valid data for all fields
+- [x] 2.19 Implement `personalSchema` — make all schema tests pass
+- [x] 2.20 Write test: `personalSchema.parse()` returns typed `PersonalInfo`
+- [x] 2.21 Write test: `personalSchema` trims whitespace before validation (e.g., `"  John  "` → `"John"`)
+- [x] 2.22 Write test: `personalSchema` rejects firstname over 50 chars (`.max(50)`)
+- [x] 2.23 Write test: `personalSchema` rejects lastname over 50 chars (`.max(50)`)
+- [x] 2.24 Write test: `personalSchema` rejects address over 200 chars (`.max(200)`)
+- [x] 2.25 Write test: `personalSchema` rejects email over 254 chars (`.max(254)`)
+- [x] 2.26 Write test: `FormStateSchema` accepts valid FormState with selections
+- [x] 2.27 Write test: `FormStateSchema` rejects FormState without basic insurance selection
+- [x] 2.28 Implement `FormStateSchema` — make all schema tests pass
+      → **Testable in browser**: `pnpm dev` loads app with Zod schemas importable, no build errors, all unit tests green (run `pnpm test`).
 
 ## 3. Receipt Calculator Stub (12 tasks)
 
