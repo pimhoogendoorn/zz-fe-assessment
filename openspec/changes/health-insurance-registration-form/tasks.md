@@ -10,7 +10,7 @@
 - [ ] 1.8 Copy `data/insurance-plans.json` to `public/api/insurance-plans.json`
   → **Testable in browser**: `pnpm dev` loads empty Vite app, console passes, Vitest runs green on empty suite.
 
-## 2. Foundation B — Types, Schemas & Secure Input (18 tasks)
+## 2. Foundation B — Types, Schemas & Secure Input (20 tasks)
 
 - [ ] 2.9 Define TypeScript interfaces: `PersonalInfo`, `Plan`, `Addon`, `FormState`, `InsuranceApiResponse`
 - [ ] 2.10 Write test: `personalSchema` rejects empty firstname
@@ -27,7 +27,8 @@
 - [ ] 2.21 Write test: `personalSchema` trims whitespace before validation (e.g., `"  John  "` → `"John"`)
 - [ ] 2.22 Write test: `personalSchema` rejects firstname over 50 chars (`.max(50)`)
 - [ ] 2.23 Write test: `personalSchema` rejects lastname over 50 chars (`.max(50)`)
-- [ ] 2.24 Write test: `personalSchema` rejects address over 200 chars (`.max(200)`)- [ ] 2.25 Write test: `personalSchema` rejects email over 254 chars (`.max(254)`)
+- [ ] 2.24 Write test: `personalSchema` rejects address over 200 chars (`.max(200)`)
+- [ ] 2.25 Write test: `personalSchema` rejects email over 254 chars (`.max(254)`)
 - [ ] 2.26 Write test: `FormStateSchema` accepts valid FormState with selections
 - [ ] 2.27 Write test: `FormStateSchema` rejects FormState without basic insurance selection
 - [ ] 2.28 Implement `FormStateSchema` — make all schema tests pass
@@ -132,7 +133,7 @@
 - [ ] 9.7 Clear localStorage on successful submit
   → **Testable in browser**: Fill out Step 1 → reload page → data persists. Submit form → localStorage cleared.
 
-## 10. URL Navigation (12 tasks)
+## 10. URL Navigation (15 tasks)
 
 - [ ] 10.1 Write test: `readStepFromURL()` returns `1` for `?step=personal-details`
 - [ ] 10.2 Write test: `readStepFromURL()` returns `2` for `?step=product-selection`
@@ -163,10 +164,11 @@
 - [ ] 11.8 Test form reset after successful submit clears everything
 - [ ] 11.9 Ensure receipt is always visible on mobile (not hidden behind sticky header)
 - [ ] 11.10 Verify no `dangerouslySetInnerHTML` exists in codebase
-- [ ] 11.11 Test entire flow end-to-end: Step 1 → Step 2 → Step 3 → Submit
-- [ ] 11.12 Test localStorage persistence: survive tab reload and browser restart
-- [ ] 11.13 Test URL validation: bookmark `/?step=product-selection` without personal-details data → redirects to personal-details
-- [ ] 11.14 Test back/forward with URL sync
-- [ ] 11.15 Run full test suite: `pnpm test` — all pass
-- [ ] 11.16 Run linter and formatter: `pnpm format`, `pnpm lint`, `pnpm typecheck`
+- [ ] 11.11 Run accessibility audit with axe-core against WCAG 2.1 AA: verify contrast ratios, semantic HTML, keyboard navigation, focus indicators, screen reader labels
+- [ ] 11.12 Test entire flow end-to-end: Step 1 → Step 2 → Step 3 → Submit
+- [ ] 11.13 Test localStorage persistence: survive tab reload and browser restart
+- [ ] 11.14 Test URL validation: bookmark `/?step=product-selection` without personal-details data → redirects to personal-details
+- [ ] 11.15 Test back/forward with URL sync
+- [ ] 11.16 Run full test suite: `pnpm test` — all pass
+- [ ] 11.17 Run linter and formatter: `pnpm format`, `pnpm lint`, `pnpm typecheck`
   → **Testable in browser**: Full production flow. Complete all 3 steps, submit, verify console.log + localStorage cleared, verify URL resets to `/?step=personal-details`.

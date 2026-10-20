@@ -219,3 +219,32 @@ Plan cards in Step 2 and addon checkboxes in Step 3 SHALL be rendered by mapping
 
 - **WHEN** a new item is added to `additionalInsurance` in the JSON file
 - **THEN** the new addon renders as a checkbox automatically
+
+### Requirement: Accessibility (WCAG 2.1 AA)
+
+The application SHALL meet WCAG 2.1 Level AA success criteria. This includes minimum color contrast ratio of 4.5:1 for normal text and 3:1 for large text, semantic HTML structure (headings, landmark regions, form labels), keyboard navigation for all interactive elements, visible focus indicators, and ARIA attributes where native HTML is insufficient.
+
+#### Scenario: Contrast ratio meets WCAG AA
+
+- **WHEN** the UI is checked against WCAG 2.1 AA contrast requirements
+- **THEN** all text meets minimum 4.5:1 contrast ratio (normal text) or 3:1 (large text)
+
+#### Scenario: Semantic HTML structure
+
+- **WHEN** the HTML is inspected
+- **THEN** the page uses proper landmarks (`<main>`, `<nav>`, `<header>`), heading hierarchy (`<h1>` → `<h2>` → `<h3>`), and `<label>` elements for all form inputs
+
+#### Scenario: Keyboard navigation
+
+- **WHEN** a user navigates with the keyboard (Tab, Enter, Space, Arrow keys)
+- **THEN** all interactive elements are reachable and operable without a mouse
+
+#### Scenario: Visible focus indicators
+
+- **WHEN** a user tabs through the form
+- **THEN** every focused element has a clearly visible focus outline (not removed via CSS)
+
+#### Scenario: Screen reader compatibility
+
+- **WHEN** a screen reader processes the form
+- **THEN** all form fields have accessible labels, errors are announced, and step progress is announced
