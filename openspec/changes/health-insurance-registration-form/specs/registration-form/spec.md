@@ -189,7 +189,7 @@ All user-entered strings SHALL be trimmed and constrained with `min()`/`max()` l
 #### Scenario: URL contains no PII
 
 - **WHEN** the user navigates to any step
-- **THEN** the URL only contains `?step=N` — no email, name, or date of birth in params
+- **THEN** the URL only contains `?step=personal-details`, `?step=product-selection`, or `?step=addons` — no email, name, or date of birth in params
 
 ### Requirement: Data-driven rendering for insurance items
 

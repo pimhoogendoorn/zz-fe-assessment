@@ -16,7 +16,7 @@ A multi-step health insurance registration form is needed to allow users to regi
 - **New**: React Context for cross-step state management
 - **New**: Monitoring error hook (commented out) for Sentry/New Relic integration
 - **New**: Full test suite with Vitest + Testing Library — tests written before implementation (TDD), covering schemas, components, utilities, and context
-- **New**: URL-based step navigation via search params (`?step=1`, `?step=2`, `?step=3`) with previous-step validation → redirects to prior step if not completed
+- **New**: URL-based step navigation via search params (`?step=personal-details`, `?step=product-selection`, `?step=addons`) with previous-step validation → redirects to prior step if not completed
 - **New**: Secure input handling — Zod `.trim()` on all string fields, `.max()` length constraints, no `dangerouslySetInnerHTML` anywhere
 
 ## Capabilities

@@ -48,7 +48,8 @@ All tests are written before implementation code. Pure functions (schemas, calcu
 All user input goes through Zod `.trim()` and `.max()` constraints. Zero `dangerouslySetInnerHTML` — React escapes text by default which prevents XSS. URL params only carry step number (`?step=N`), never PII. POST payload sent to `/api/registration` uses `application/json` Content-Type (not form-urlencoded) to prevent CSRF via simple HTML forms.
 
 ### URL Search Params for Step Navigation
-Step is driven by `?step=N` in the URL. `history.pushState` updates on navigation, `popstate` listens for back/forward. On mount, the URL is read and validated: if the requested step's previous step has no saved data in localStorage, the user is redirected to the earliest incomplete step. This is implemented as a `useStepURL` hook that reads from URL, writes to URL, and validates via localStorage.
+
+Step is driven by semantic search params (`?step=personal-details`, `?step=product-selection`, `?step=addons`). `history.pushState` updates on navigation, `popstate` listens for back/forward. On mount, the URL is read and validated: if the requested step's previous step has no saved data in localStorage, the user is redirected to the earliest incomplete step. This is implemented as a `useStepURL` hook that maps semantic step names to internal step numbers (1-3), reads from URL, writes to URL, and validates via localStorage. Semantic names provide flexibility if steps are reordered or renamed in the future without breaking bookmarks or shared URLs.
 
 ### Data-Driven Rendering
 Plan cards and addon checkboxes are rendered by mapping over data arrays. No hardcoded components, no `if (id === 'basis')`, no per-item switch statements. Adding an item to `basicInsurance` or `additionalInsurance` in the JSON file requires zero code changes — the mapping renders it automatically. This applies to Step 2 plan cards, Step 3 checkbox list, and the receipt lines that list selected items.

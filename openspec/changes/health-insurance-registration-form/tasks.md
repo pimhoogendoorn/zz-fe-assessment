@@ -135,19 +135,22 @@
 
 ## 10. URL Navigation (12 tasks)
 
-- [ ] 10.1 Write test: `readStepFromURL()` returns `1` when no `?step` param
-- [ ] 10.2 Write test: `readStepFromURL()` returns `2` for `?step=2`
-- [ ] 10.3 Write test: `readStepFromURL()` returns `3` for `?step=3`
-- [ ] 10.4 Write test: `readStepFromURL()` clamps invalid values to `1`
-- [ ] 10.5 Write test: `writeStepToURL(2)` calls `history.pushState` with `?step=2`
-- [ ] 10.6 Write test: `validateStep(2)` returns true/false based on localStorage
-- [ ] 10.7 Write test: `validateStep(3)` returns true/false based on localStorage
-- [ ] 10.8 Write test: `validateStep(1)` always returns true
-- [ ] 10.9 Implement `useStepURL` hook — make all tests pass
-- [ ] 10.10 Wire URL sync into App (next/prev update `?step=N`)
-- [ ] 10.11 Implement redirect on mount (incomplete steps → redirect)
-- [ ] 10.12 Test URL validation: bookmark `/?step=2` without step 1 data → redirects
-  → **Testable in browser**: Full URL navigation. Type `/?step=1`, `/?step=2`, `/?step=3`. Test back/forward buttons. Test redirected pages.
+- [ ] 10.1 Write test: `readStepFromURL()` returns `1` for `?step=personal-details`
+- [ ] 10.2 Write test: `readStepFromURL()` returns `2` for `?step=product-selection`
+- [ ] 10.3 Write test: `readStepFromURL()` returns `3` for `?step=addons`
+- [ ] 10.4 Write test: `readStepFromURL()` returns `1` when no `?step` param
+- [ ] 10.5 Write test: `readStepFromURL()` clamps invalid values to `1` (`?step=abc` → `1`)
+- [ ] 10.6 Write test: `writeStepToURL(2)` calls `history.pushState` with `?step=product-selection`
+- [ ] 10.7 Write test: `validateStep(2)` returns true when personal-details data is in localStorage
+- [ ] 10.8 Write test: `validateStep(2)` returns false when personal-details data is NOT in localStorage
+- [ ] 10.9 Write test: `validateStep(3)` returns true when product-selection selection is in localStorage
+- [ ] 10.10 Write test: `validateStep(3)` returns false when product-selection selection is NOT in localStorage
+- [ ] 10.11 Write test: `validateStep(1)` always returns true (always valid base step)
+- [ ] 10.12 Implement `useStepURL` hook and `validateStep` — make all tests pass
+- [ ] 10.13 Wire URL sync into App (next/prev update semantic step name)
+- [ ] 10.14 Implement redirect on mount (incomplete steps → redirect to prior semantic step)
+- [ ] 10.15 Test URL validation: open `/?step=product-selection` without step 1 data → redirects to personal-details
+      → **Testable in browser**: Full semantic URL navigation. Type `/?step=personal-details`, `/?step=product-selection`, `/?step=addons`. Test back/forward buttons. Test redirected pages.
 
 ## 11. Integration, Layout & Polish (17 tasks)
 
@@ -163,8 +166,8 @@
 - [ ] 11.10 Verify no `dangerouslySetInnerHTML` exists in codebase
 - [ ] 11.11 Test entire flow end-to-end: Step 1 → Step 2 → Step 3 → Submit
 - [ ] 11.12 Test localStorage persistence: survive tab reload and browser restart
-- [ ] 11.13 Test URL validation: bookmark `/?step=2` without step 1 data → redirects to step 1
+- [ ] 11.13 Test URL validation: bookmark `/?step=product-selection` without personal-details data → redirects to personal-details
 - [ ] 11.14 Test back/forward with URL sync
 - [ ] 11.15 Run full test suite: `pnpm test` — all pass
 - [ ] 11.16 Run linter and formatter: `pnpm format`, `pnpm lint`, `pnpm typecheck`
-  → **Testable in browser**: Full production flow. Complete all 3 steps, submit, verify console.log + localStorage cleared, verify URL resets to `/?step=1`.
+  → **Testable in browser**: Full production flow. Complete all 3 steps, submit, verify console.log + localStorage cleared, verify URL resets to `/?step=personal-details`.
