@@ -43,6 +43,11 @@ Step 1 collects first name, last name, date of birth, email address, and address
 - **WHEN** the user enters a future date or an invalid date
 - **THEN** an inline error "is een ongeldige datum" appears beneath the field
 
+#### Scenario: Minimum age 18 years
+
+- **WHEN** the user enters a date of birth less than 18 years ago
+- **THEN** an inline error "Kinderen zijn meeverzekerd met hun ouders tot 18 jaar" appears beneath the field
+
 #### Scenario: Next button enabled on valid data
 
 - **WHEN** all five fields contain valid values

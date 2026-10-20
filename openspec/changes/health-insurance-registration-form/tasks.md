@@ -20,6 +20,7 @@
 - [ ] 2.14 Write test: `personalSchema` rejects empty address
 - [ ] 2.15 Write test: `personalSchema` rejects invalid email format
 - [ ] 2.16 Write test: `personalSchema` rejects future dates for dateOfBirth
+- [ ] 2.17 Write test: `personalSchema` rejects date of birth less than 18 years ago
 - [ ] 2.17 Write test: `personalSchema` rejects invalid date strings
 - [ ] 2.18 Write test: `personalSchema` accepts valid data for all fields
 - [ ] 2.19 Implement `personalSchema` — make all schema tests pass
