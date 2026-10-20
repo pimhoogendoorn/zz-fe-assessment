@@ -42,6 +42,12 @@ describe('calculateTotal', () => {
     const addon = { id: 'a1', name: 'A', price: 0.2, description: '' }
     expect(calculateTotal(plan, [addon])).toBe(0.3)
   })
+
+  it('correctly rounds multiple decimal places', () => {
+    const plan = { id: 'basis', name: 'Basis', price: 145.455, description: '' }
+    const addon = { id: 'a1', name: 'A', price: 23.333, description: '' }
+    expect(calculateTotal(plan, [addon])).toBe(168.79)
+  })
 })
 
 describe('formatPrice', () => {
