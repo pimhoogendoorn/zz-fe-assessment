@@ -51,15 +51,15 @@ describe('calculateTotal', () => {
 })
 
 describe('formatPrice', () => {
-  it('returns "€ 145,45" for 145.45 using nl-NL locale', () => {
-    expect(formatPrice(145.45)).toBe('€ 145,45')
+  it('formats 145.45 using nl-NL locale', () => {
+    expect(formatPrice(145.45)).toBe('145,45')
   })
 
-  it('returns "€ 1.000,00" for 1000', () => {
-    expect(formatPrice(1000)).toBe('€ 1.000,00')
+  it('formats 1000 using nl-NL locale', () => {
+    expect(formatPrice(1000)).toBe('1.000,00')
   })
 
-  it('returns "€ 0,50" for 0.5', () => {
-    expect(formatPrice(0.5)).toBe('€ 0,50')
+  it('formats 0.5 using nl-NL locale', () => {
+    expect(formatPrice(0.5)).toBe('0,50')
   })
 })

@@ -14,9 +14,8 @@ export function calculateTotal(plan: Plan | undefined, addons: Addon[]): number 
 }
 
 export function formatPrice(amount: number): string {
-  const formatted = new Intl.NumberFormat('nl-NL', {
+  return new Intl.NumberFormat('nl-NL', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(amount)
-  return `€ ${formatted}`
 }
