@@ -50,6 +50,9 @@ All user input goes through Zod `.trim()` and `.max()` constraints. Zero `danger
 ### URL Search Params for Step Navigation
 Step is driven by `?step=N` in the URL. `history.pushState` updates on navigation, `popstate` listens for back/forward. On mount, the URL is read and validated: if the requested step's previous step has no saved data in localStorage, the user is redirected to the earliest incomplete step. This is implemented as a `useStepURL` hook that reads from URL, writes to URL, and validates via localStorage.
 
+### Data-Driven Rendering
+Plan cards and addon checkboxes are rendered by mapping over data arrays. No hardcoded components, no `if (id === 'basis')`, no per-item switch statements. Adding an item to `basicInsurance` or `additionalInsurance` in the JSON file requires zero code changes — the mapping renders it automatically. This applies to Step 2 plan cards, Step 3 checkbox list, and the receipt lines that list selected items.
+
 ## Risks / Trade-offs
 
 | Risk | Impact | Mitigation |

@@ -190,3 +190,27 @@ All user-entered strings SHALL be trimmed and constrained with `min()`/`max()` l
 
 - **WHEN** the user navigates to any step
 - **THEN** the URL only contains `?step=N` — no email, name, or date of birth in params
+
+### Requirement: Data-driven rendering for insurance items
+
+Plan cards in Step 2 and addon checkboxes in Step 3 SHALL be rendered by mapping over data arrays from the API response. No hardcoded card or checkbox components, no per-item `if` or `switch` statements based on `id`. Adding an item to `basicInsurance` or `additionalInsurance` in the JSON file automatically updates the UI without code changes.
+
+#### Scenario: Cards rendered by mapping over data
+
+- **WHEN** step 2 loads plan data
+- **THEN** plan cards are rendered via `.map()` on `basicInsurance` array, no hardcoded card count
+
+#### Scenario: New basic plan auto-renders without code changes
+
+- **WHEN** a new item is added to `basicInsurance` in the JSON file
+- **THEN** the new plan renders as a selectable card automatically
+
+#### Scenario: Checkbox rendered by mapping over data
+
+- **WHEN** step 3 loads addon data
+- **THEN** checkbox items are rendered via `.map()` on `additionalInsurance` array, no hardcoded checkbox count
+
+#### Scenario: New addon auto-renders without code changes
+
+- **WHEN** a new item is added to `additionalInsurance` in the JSON file
+- **THEN** the new addon renders as a checkbox automatically
