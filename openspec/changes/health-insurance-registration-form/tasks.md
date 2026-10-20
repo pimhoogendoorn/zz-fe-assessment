@@ -1,8 +1,8 @@
 ## 1. Foundation A — Setup & Run (8 tasks)
 
-- [ ] 1.1 Initialize Vite project with React + TypeScript template
-- [ ] 1.2 Install dependencies: react-hook-form, @hookform/resolvers/zod
-- [ ] 1.3 Install dev dependencies: vitest, @testing-library/react, @testing-library/jest-dom, @testing-library/user-event, jsdom
+- [ ] 1.1 Initialize Vite project with `pnpm create vite@latest . -- --template react-ts`
+- [ ] 1.2 Install runtime dependencies: `pnpm add react-hook-form @hookform/resolvers/zod`
+- [ ] 1.3 Install dev dependencies: `pnpm add -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom`
 - [ ] 1.4 Configure Vitest (jsdom environment, jest-dom matchers, setup file)
 - [ ] 1.5 Install and configure Tailwind CSS v3
 - [ ] 1.6 Configure TypeScript path aliases (`@/` → `src/`)
@@ -27,8 +27,7 @@
 - [ ] 2.21 Write test: `personalSchema` trims whitespace before validation (e.g., `"  John  "` → `"John"`)
 - [ ] 2.22 Write test: `personalSchema` rejects firstname over 50 chars (`.max(50)`)
 - [ ] 2.23 Write test: `personalSchema` rejects lastname over 50 chars (`.max(50)`)
-- [ ] 2.24 Write test: `personalSchema` rejects address over 200 chars (`.max(200)`)
-- [ ] 2.25 Write test: `personalSchema` rejects email over 254 chars (`.max(254)`)
+- [ ] 2.24 Write test: `personalSchema` rejects address over 200 chars (`.max(200)`)- [ ] 2.25 Write test: `personalSchema` rejects email over 254 chars (`.max(254)`)
 - [ ] 2.26 Write test: `FormStateSchema` accepts valid FormState with selections
 - [ ] 2.27 Write test: `FormStateSchema` rejects FormState without basic insurance selection
 - [ ] 2.28 Implement `FormStateSchema` — make all schema tests pass
@@ -150,7 +149,7 @@
 - [ ] 10.13 Wire URL sync into App (next/prev update semantic step name)
 - [ ] 10.14 Implement redirect on mount (incomplete steps → redirect to prior semantic step)
 - [ ] 10.15 Test URL validation: open `/?step=product-selection` without step 1 data → redirects to personal-details
-      → **Testable in browser**: Full semantic URL navigation. Type `/?step=personal-details`, `/?step=product-selection`, `/?step=addons`. Test back/forward buttons. Test redirected pages.
+  → **Testable in browser**: Full semantic URL navigation. Type `/?step=personal-details`, `/?step=product-selection`, `/?step=addons`. Test back/forward buttons. Test redirected pages.
 
 ## 11. Integration, Layout & Polish (17 tasks)
 
