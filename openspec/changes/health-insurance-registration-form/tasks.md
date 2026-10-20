@@ -59,7 +59,7 @@
 - [ ] 4.5 Disable next button while form invalid
 - [ ] 4.6 Enable next button when all fields valid
 - [ ] 4.7 Add summary error banner at top (shows when errors > 0)
-- [ ] 4.8 Write tests: renders fields, errors on empty, errors on invalid email, button state
+- [ ] 4.8 Write tests: renders fields, errors on empty, errors on invalid email, button state, no back button on step 1
 - [ ] 4.9 Implement Step 1 — make all tests pass
   → **Testable in browser**: Hardcode `currentStep = 1`. Load page, type in fields, observe validation, test next button state.
 

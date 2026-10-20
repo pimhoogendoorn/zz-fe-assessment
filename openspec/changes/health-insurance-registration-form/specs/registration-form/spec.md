@@ -19,6 +19,11 @@ The registration form SHALL present three sequential steps: personal information
 - **WHEN** the user is on step 2 or step 3
 - **THEN** a back button is always enabled and navigates to the previous step
 
+#### Scenario: No back button on step 1
+
+- **WHEN** the user is on step 1 (personal-details)
+- **THEN** no back button is rendered
+
 ### Requirement: Personal information fields with Zod validation
 
 Step 1 collects first name, last name, date of birth, email address, and address. All fields are required and SHALL be validated against Zod schemas.
