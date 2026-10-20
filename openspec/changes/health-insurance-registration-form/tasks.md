@@ -37,19 +37,19 @@
 
 ## 3. Receipt Calculator Stub (12 tasks)
 
-- [ ] 3.1 Write test: `calculateBasicTotal(undefined)` returns 0
-- [ ] 3.2 Write test: `calculateBasicTotal(plan)` returns plan.price
-- [ ] 3.3 Write test: `calculateAddonTotal([])` returns 0
-- [ ] 3.4 Write test: `calculateAddonTotal([addon1])` returns addon1.price
-- [ ] 3.5 Write test: `calculateAddonTotal([addon1, addon2])` returns sum of prices
-- [ ] 3.6 Write test: `calculateTotal(plan, addons)` returns plan + addons sum
-- [ ] 3.7 Write test: `calculateTotal` handles floating-point precision (no 0.0000001 errors)
-- [ ] 3.8 Implement `calculateBasicTotal`, `calculateAddonTotal`, `calculateTotal` — make all tests pass
-- [ ] 3.9 Write test: `formatPrice` returns "€ 145,45" for 145.45 using nl-NL locale
-- [ ] 3.10 Write test: `formatPrice` returns "€ 1.000,00" for 1000
-- [ ] 3.11 Write test: `formatPrice` returns "€ 0,50" for 0.5
-- [ ] 3.12 Implement `formatPrice` — make all tests pass
-  → **Testable in browser**: Hardcode a receipt rendering `€ 145,45 / € 0,00 / € 145,45`. Load page, verify receipt shows mocked values.
+- [x] 3.1 Write test: `calculateBasicTotal(undefined)` returns 0
+- [x] 3.2 Write test: `calculateBasicTotal(plan)` returns plan.price
+- [x] 3.3 Write test: `calculateAddonTotal([])` returns 0
+- [x] 3.4 Write test: `calculateAddonTotal([addon1])` returns addon1.price
+- [x] 3.5 Write test: `calculateAddonTotal([addon1, addon2])` returns sum of prices
+- [x] 3.6 Write test: `calculateTotal(plan, addons)` returns plan + addons sum
+- [x] 3.7 Write test: `calculateTotal` handles floating-point precision (no 0.0000001 errors)
+- [x] 3.8 Implement `calculateBasicTotal`, `calculateAddonTotal`, `calculateTotal` — make all tests pass
+- [x] 3.9 Write test: `formatPrice` returns "€ 145,45" for 145.45 using nl-NL locale
+- [x] 3.10 Write test: `formatPrice` returns "€ 1.000,00" for 1000
+- [x] 3.11 Write test: `formatPrice` returns "€ 0,50" for 0.5
+- [x] 3.12 Implement `formatPrice` — make all tests pass
+      → **Testable in browser**: Hardcode a receipt rendering `€ 145,45 / € 0,00 / € 145,45`. Load page, verify receipt shows mocked values.
 
 ## 4. Step 1 — Personal Info Stub (9 tasks)
 
