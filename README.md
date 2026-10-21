@@ -2,11 +2,31 @@
 
 This is a multi-step registration form for health insurance.
 
+## Prerequisites
+
+- Nodejs: https://nodejs.org/en/download
+- PNPM: https://pnpm.io/installation
+
+## Installation
+
+1. Clone the project.
+2. Make sure you have Nodejs and pnpm installed
+3. Run `pnpm i` and then `pnpm dev`
+
 ## Tools used
 
-- Opencode with Qwen 3.6 27B for the Openspec exploration.
-- Opencode with Qwen 3.6 27B for implementation of milestones 1, 2 and 3.
+### AI tools
+
+- Opencode with Qwen 3.6 27B for the Openspec exploration and proposal that resulted in the /openspec dir contents.
+- Opencode with Qwen 3.6 27B for implementation of milestones 1, 2 and 3
 - Opencode with GPT 5.6 Luna for implementation of milestone 4
+
+### Others
+
+- VS Code with Copilot on auto model selection
+- Ghostty as my terminal
+- Docker sandbox with Opencode
+- Firefox as my browser of choice
 
 ## Architecture choices
 
@@ -18,9 +38,8 @@ The choices I have made while planning the project were:
 
 - React & Typescript as requirements
 - Typescript config
-  - Just go for a basic config now. But always with `strict` mode enabled and jsx support.
-  - We can always tweak later when we need it.
-- No framework other than React itself. I just want to show a basic React app. Doing it in Nextjs, React-router or Tanstack router would add unnecessary complexity for what I want to show for this assessment.
+  - Just go for a basic config now. But always with `strict` mode enabled and jsx support. We can always tweak later when we need it.
+- No framework other than React itself. I just want to show a basic client-side rendered React app. Using Nextjs, React-router or Tanstack router would add unnecessary complexity for what I want to show for this assessment.
 
 ### Form
 
@@ -30,7 +49,7 @@ The choices I have made while planning the project were:
 - React Context API for state management. Should be sufficient for the usecase.
   - Zustand could be nice but would add unnecessary complexity.
 - React-hook-form
-  - It prevents manually writing my own field states, blur handlers, error displays etc.
+  - It prevents manually writing my own field states, blur handlers, error display logic etc.
   - Popular and widely used
 - No headless component library or anything
   - Some basic HTML inputs should be fine
@@ -52,11 +71,10 @@ The choices I have made while planning the project were:
   - Easy to implement
   - Would be close to using a real world API endpoint
 - Loading state
-  - I prefer skeleton loaders over spinners blocking the page.
-  - Skeleton loaders make the perceived performance better for the user.
-  - But what when we cannot load the data?
+  - I prefer skeleton loaders over spinners blocking the page. Skeleton loaders make the perceived performance better for the user.
+  - What when we cannot load the data?
     - The user can retry via a retry button but when it keeps failing that would not help
-    - Therefor I would show an e-mailaddress the user can send an email for help.
+    - Therefor I would show a contact option so the user can contact us for help.
 
 ### State management
 
@@ -73,6 +91,7 @@ The choices I have made while planning the project were:
   - Since we do not have a router we can use hashes, searchParams or pushstate.
   - Going for searchParams because they result in normal history entry
   - Not going for hashes because the url is less clean and needs string parsing rather than `URL.searchParams`
+  - Navigating between the first steps would be links. Where we store the formdata in localstorage between the steps. The last step would submit the form. This way the data would be persisted and submitted once. Submitting between steps could lead to half filled formdata to end up in the backend when users started the flow but stopped before the end.
 
 ### Order calculation (Receipt)
 
@@ -83,12 +102,12 @@ The choices I have made while planning the project were:
   - We can use the native `Intl.NumberFormat` API for this. Dots in prices in the API response would be formatted with comma's as thats what we use in the Netherlands.
   - Ideally this would be done by the API so that we do not risk having rounding bugs in the frontend. But this would require submits between steps, maybe also not ideal.
 
-## Improvements
+## What would I have done different with more time?
 
 - Use plain CSS. The possibilities with the new CSS api's are endless. However, development speed with TailwindCSS is fast. As a purist I like plain CSS a lot and I was a bit against TailwindCSS. But when I tried I saw the benefits of it with theming, onboarding new devs and small footprint of the CSS itself.
 - Lookup address based on postal code
 - For SEO and better performance and smaller bundles it would be better to server side render the form.
-- Add date-fns or a similar package to make date calculations more readable and easier.
+- Add date-fns or a similar package to make date calculations more readable and easier. For example the date-of-birth validation is buggy now. You can fill in 23/02/0322.
 - Test on real devices. I only tested the responsiveness now in my browser (Firefox).
 - Cleanup things that could be more DRY. I see I duplicated some objects that I could share. Inside the tests for example.
 - Polish the look & feel. Its a bit simple now.
