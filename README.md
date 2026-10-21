@@ -5,6 +5,8 @@ This is a multi-step registration form for health insurance.
 ## Tools used
 
 - Opencode with Qwen 3.6 27B for the Openspec exploration.
+- Opencode with Qwen 3.6 27B for implementation of milestones 1, 2 and 3.
+- Opencode with GPT 5.6 Luna for implementation of milestone 4
 
 ## Architecture choices
 
@@ -87,3 +89,6 @@ The choices I have made while planning the project were:
 - Lookup address based on postal code
 - For SEO and better performance and smaller bundles it would be better to server side render the form.
 - Add date-fns or a similar package to make date calculations more readable and easier.
+- Test on real devices. I only tested the responsiveness now in my browser (Firefox).
+- Cleanup things that could be more DRY. I see I duplicated some objects that I could share. Inside the tests for example.
+- Polish the look & feel. Its a bit simple now.

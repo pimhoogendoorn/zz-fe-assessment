@@ -12,33 +12,67 @@ export const PersonalInfo = () => {
     formState: { errors, isValid },
   } = useFormContext<PersonalInfoData>()
 
+  const hasFieldErrors = Object.keys(errors).some((key) => key !== 'root')
+
+  const fields = [
+    { name: 'firstname', label: 'Uw voornaam', type: 'text' },
+    { name: 'lastname', label: 'Uw achternaam', type: 'text' },
+    { name: 'dateOfBirth', label: 'Uw geboortedatum', type: 'date' },
+    { name: 'email', label: 'Uw e-mailadres', type: 'email' },
+    { name: 'address', label: 'Uw adres', type: 'text' },
+  ] as const
+
   return (
-    <fieldset className="w-full">
-      <h2 className="font-semibold text-blue-500 mb-0.5">Persoonlijke informatie</h2>
-      <p className="text-gray-900">
-        Vul onderstaande gegevens in om te beginnen met uw aanmelding.
+    <fieldset className="w-full" aria-labelledby="personal-info-heading">
+      <legend id="personal-info-heading" className="font-semibold text-blue-500 mb-0.5">
+        Persoonlijke informatie
+      </legend>
+      <p className="text-gray-900 mb-4">
+        Vul onderstaande gegevens in om te beginnen met uw aanmelding. Alle velden zijn verplicht.
       </p>
 
+      {hasFieldErrors && (
+        <div role="alert" className="mb-4 bg-red-200 p-2 ">
+          Er lijkt iets mis te gaan met uw ingevulde gegevens.
+        </div>
+      )}
       {errors.root && <div className="mb-4 bg-red-800 p-2 text-white">{errors.root.message}</div>}
 
-      <Field className="my-4">
-        <Label htmlFor="firstname" className="mb-2 inline-block">
-          Uw voornaam
-        </Label>
-        <Input
-          id="firstname"
-          type="text"
-          {...register('firstname')}
-          required={true}
-          isValid={!errors.firstname}
-          onBlur={() => trigger('firstname')}
-          errorMessage={errors.firstname?.message}
-          className="w-full"
-        />
-      </Field>
-      <Button type="submit" disabled={!isValid}>
-        Volgende stap
-      </Button>
+      {fields.map(({ name, label, type }) => {
+        const error = errors[name]
+        const errorId = `${name}-error`
+        const field = register(name)
+
+        return (
+          <Field key={name} className="my-4">
+            <Label htmlFor={name} className="mb-2 inline-block">
+              {label}
+            </Label>
+            <Input
+              id={name}
+              type={type}
+              {...field}
+              required
+              autoComplete="off"
+              onBlur={(event) => {
+                field.onBlur(event)
+                void trigger(name)
+              }}
+              aria-invalid={error ? 'true' : 'false'}
+              aria-describedby={error ? errorId : undefined}
+              isValid={!error}
+              errorId={errorId}
+              errorMessage={error?.message}
+              className="w-full"
+            />
+          </Field>
+        )
+      })}
+      <div className="flex justify-between">
+        <Button type="submit" disabled={!isValid} className="ml-auto">
+          Volgende stap
+        </Button>
+      </div>
     </fieldset>
   )
 }

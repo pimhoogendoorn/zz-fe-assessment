@@ -7,12 +7,13 @@ import { ErrorMessage } from './ErrorMessage'
 export type InputProps = {
   isValid?: boolean
   errorMessage?: string
+  errorId?: string
 }
 
 export const Input = forwardRef<
   HTMLInputElement,
   DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & InputProps
->(({ children, className, isValid, errorMessage, ...rest }, ref) => {
+>(({ className, isValid, errorMessage, errorId, ...rest }, ref) => {
   return (
     <>
       <input
@@ -24,11 +25,9 @@ export const Input = forwardRef<
           'border-transparent': isValid ?? true,
           'border-red-800': isValid === false,
         })}
-      >
-        {children}
-      </input>
+      />
       {isValid || errorMessage === '' ? null : (
-        <ErrorMessage>{errorMessage || 'Ongeldig'}</ErrorMessage>
+        <ErrorMessage id={errorId}>{errorMessage || 'Ongeldig'}</ErrorMessage>
       )}
     </>
   )

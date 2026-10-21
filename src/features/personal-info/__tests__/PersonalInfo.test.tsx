@@ -9,7 +9,13 @@ const mockOnSubmit = vi.fn()
 
 const TestForm = ({ onSubmit }: { onSubmit: (data: PersonalInfoData) => void }) => {
   const methods = useForm<PersonalInfoData>({
-    defaultValues: { firstname: '' },
+    defaultValues: {
+      firstname: '',
+      lastname: '',
+      dateOfBirth: '',
+      email: '',
+      address: '',
+    },
     mode: 'onChange',
     resolver: zodResolver(personalInfoSchema),
   })
@@ -30,9 +36,15 @@ describe('PersonalInfo component', () => {
     mockOnSubmit.mockClear()
   })
 
-  it('renders single input field', () => {
+  it('renders every personal information field', () => {
     renderPersonalInfo()
 
-    expect(screen.getByRole('textbox', { name: 'Uw voornaam' })).toBeInTheDocument()
+    expect(screen.getByRole('textbox', { name: /voornaam/i })).toBeInTheDocument()
+    expect(screen.getByRole('textbox', { name: /achternaam/i })).toBeInTheDocument()
+    expect(screen.getByLabelText(/geboortedatum/i)).toBeInTheDocument()
+    expect(screen.getByRole('textbox', { name: /e-mailadres/i })).toBeInTheDocument()
+    expect(screen.getByRole('textbox', { name: 'Uw adres' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /volgende/i })).toBeDisabled()
+    expect(screen.queryByRole('button', { name: /vorige|terug/i })).not.toBeInTheDocument()
   })
 })

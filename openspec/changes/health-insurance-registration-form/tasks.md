@@ -61,11 +61,11 @@
 - [x] 4.6 Enable the next button for valid firstname data and submit through the parent form handler
 - [x] 4.7 Render the firstname validation message through the reusable `Input` and `ErrorMessage` components
 - [x] 4.8 Add component and integration tests for rendering firstname, validation state, and successful parent-form submission
-- [ ] 4.9 Add `lastname`, `dateOfBirth`, `email`, and `address` using the same reusable field pattern
-- [ ] 4.10 Restore required validation for every personal-info property in `personalInfoSchema`
-- [ ] 4.11 Add the minimum-age validation test and exact message to the form integration coverage
-- [ ] 4.12 Add the summary error banner for all validation errors and verify the no-back-button behavior on Step 1
-- [ ] 4.13 Expand component and integration tests to cover every field, invalid email, invalid/future/under-18 dates, all button states, and full submission payload
+- [x] 4.9 Add `lastname`, `dateOfBirth`, `email`, and `address` using the same reusable field pattern
+- [x] 4.10 Restore required validation for every personal-info property in `personalInfoSchema`
+- [x] 4.11 Add the minimum-age validation test and exact message to the form integration coverage
+- [x] 4.12 Add the summary error banner for all validation errors and verify the no-back-button behavior on Step 1
+- [x] 4.13 Expand component and integration tests to cover every field, invalid email, invalid/future/under-18 dates, all button states, and full submission payload
       → **Testable in browser**: The current vertical slice is testable now: load Step 1, enter a firstname, observe validation, enable the button, and submit. After tasks 4.9–4.13, test the complete five-field Step 1 flow.
 
 ## 5. API Layer & Mock Data (8 tasks)
@@ -78,7 +78,7 @@
 - [ ] 5.6 Write test: `submitRegistration(payload)` resolves without error
 - [ ] 5.7 Write test: `submitRegistration(payload)` logs the payload to console
 - [ ] 5.8 Implement `submitRegistration()` — make all submit tests pass
-  → **Testable in browser**: Run `pnpm dev`, verify `fetch('/api/insurance-plans.json')` returns real data in browser console. All API tests green (`pnpm test`).
+      → **Testable in browser**: Run `pnpm dev`, verify `fetch('/api/insurance-plans.json')` returns real data in browser console. All API tests green (`pnpm test`).
 
 ## 6. Step 2 — Basic Insurance (10 tasks)
 
@@ -92,7 +92,7 @@
 - [ ] 6.8 Write tests: skeleton loading, plan rendering, selection state, error state, retry
 - [ ] 6.9 Implement Step 2 — make all tests pass
 - [ ] 6.10 Test loading/error UX manually
-  → **Testable in browser**: Hardcode `currentStep = 2`. Verify plan cards load, click selects plan, test error state (disconnect network), test retry.
+      → **Testable in browser**: Hardcode `currentStep = 2`. Verify plan cards load, click selects plan, test error state (disconnect network), test retry.
 
 ## 7. Step 3 — Additional Insurance (8 tasks)
 
@@ -104,7 +104,7 @@
 - [ ] 7.6 Write tests: skeleton, checkbox rendering, multi-select, error state
 - [ ] 7.7 Implement Step 3 — make all tests pass
 - [ ] 7.8 Test error UX manually
-  → **Testable in browser**: Hardcode `currentStep = 3`. Verify checkboxes, test multi-select, test offline mode.
+      → **Testable in browser**: Hardcode `currentStep = 3`. Verify checkboxes, test multi-select, test offline mode.
 
 ## 8. Context & Receipt (17 tasks)
 
@@ -125,7 +125,7 @@
 - [ ] 8.15 Implement `Receipt` component — make all tests pass
 - [ ] 8.16 Wire receipt into App layout (sidebar desktop, top mobile)
 - [ ] 8.17 Test receipt updates live when changing selection in Steps 2/3
-  → **Testable in browser**: Context active. Select plan in Step 2 → receipt updates to show plan price. Select addons in Step 3 → receipt recalculates total. No URL yet.
+      → **Testable in browser**: Context active. Select plan in Step 2 → receipt updates to show plan price. Select addons in Step 3 → receipt recalculates total. No URL yet.
 
 ## 9. Persistence & Secure Input (7 tasks)
 
@@ -136,7 +136,7 @@
 - [ ] 9.5 Implement `useLocalStorage` — make all tests pass
 - [ ] 9.6 Wire `useLocalStorage` into Context to persist form state
 - [ ] 9.7 Clear localStorage on successful submit
-  → **Testable in browser**: Fill out Step 1 → reload page → data persists. Submit form → localStorage cleared.
+      → **Testable in browser**: Fill out Step 1 → reload page → data persists. Submit form → localStorage cleared.
 
 ## 10. URL Navigation (15 tasks)
 
@@ -155,7 +155,7 @@
 - [ ] 10.13 Wire URL sync into App (next/prev update semantic step name)
 - [ ] 10.14 Implement redirect on mount (incomplete steps → redirect to prior semantic step)
 - [ ] 10.15 Test URL validation: open `/?step=product-selection` without step 1 data → redirects to personal-details
-  → **Testable in browser**: Full semantic URL navigation. Type `/?step=personal-details`, `/?step=product-selection`, `/?step=addons`. Test back/forward buttons. Test redirected pages.
+      → **Testable in browser**: Full semantic URL navigation. Type `/?step=personal-details`, `/?step=product-selection`, `/?step=addons`. Test back/forward buttons. Test redirected pages.
 
 ## 11. Integration, Layout & Polish (17 tasks)
 
@@ -176,4 +176,4 @@
 - [ ] 11.15 Test back/forward with URL sync
 - [ ] 11.16 Run full test suite: `pnpm test` — all pass
 - [ ] 11.17 Run linter and formatter: `pnpm format`, `pnpm lint`, `pnpm typecheck`
-  → **Testable in browser**: Full production flow. Complete all 3 steps, submit, verify console.log + localStorage cleared, verify URL resets to `/?step=personal-details`.
+      → **Testable in browser**: Full production flow. Complete all 3 steps, submit, verify console.log + localStorage cleared, verify URL resets to `/?step=personal-details`.

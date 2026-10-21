@@ -61,3 +61,8 @@ Path alias `@/*` → `./src/*` (tsconfig + vite config).
 - No `.env` files committed. No `.env.example` exists — this repo doesn't use env vars.
 - No headless UI component libraries. Bare HTML inputs are the pattern.
 - No router. State is React `useState` + potential context; URL search params for step navigation (no hash routing).
+
+## React testing library
+
+- Use `getByRole` as your first choice.
+- Only use `getByLabelText` for form field.
