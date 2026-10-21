@@ -2,11 +2,31 @@
 
 This is a multi-step registration form for health insurance.
 
+## Prerequisites
+
+- Nodejs: https://nodejs.org/en/download
+- PNPM: https://pnpm.io/installation
+
+## Installation
+
+1. Clone the project.
+2. Make sure you have Nodejs and pnpm installed
+3. Run `pnpm i` and then `pnpm dev`
+
 ## Tools used
 
-- Opencode with Qwen 3.6 27B for the Openspec exploration.
-- Opencode with Qwen 3.6 27B for implementation of milestones 1, 2 and 3.
+### AI tools
+
+- Opencode with Qwen 3.6 27B for the Openspec exploration and proposal that resulted in the /openspec dir contents.
+- Opencode with Qwen 3.6 27B for implementation of milestones 1, 2 and 3
 - Opencode with GPT 5.6 Luna for implementation of milestone 4
+
+### Others
+
+- VS Code with Copilot on auto model selection
+- Ghostty as my terminal
+- Docker sandbox with Opencode
+- Firefox as my browser of choice
 
 ## Architecture choices
 
