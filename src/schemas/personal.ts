@@ -16,8 +16,7 @@ export const personalInfoSchema = z.object({
     .string()
     .trim()
     .min(1, 'Achternaam is verplicht')
-    .max(50, 'Achternaam is te lang (max 50 tekens)')
-    .optional(),
+    .max(50, 'Achternaam is te lang (max 50 tekens)'),
   dateOfBirth: z
     .string()
     .min(1, 'Geboortedatum is verplicht')
@@ -29,22 +28,19 @@ export const personalInfoSchema = z.object({
     .refine((val) => val < todayISO, 'Geboortedatum is een toekomstige datum')
     .refine(
       (val) => val <= eighteenYearsAgoISO,
-      'Kinderen zijn meerverzekerd met hun ouders tot 18 jaar',
-    )
-    .optional(),
+      'Kinderen zijn meeverzekerd met hun ouders tot 18 jaar',
+    ),
   email: z
     .string()
     .trim()
     .min(1, 'E-mailadres is verplicht')
     .email('Ongeldig e-mailadres')
-    .max(254, 'E-mailadres is te lang (max 254 tekens)')
-    .optional(),
+    .max(254, 'E-mailadres is te lang (max 254 tekens)'),
   address: z
     .string()
     .trim()
     .min(1, 'Adres is verplicht')
-    .max(200, 'Adres is te lang (max 200 tekens)')
-    .optional(),
+    .max(200, 'Adres is te lang (max 200 tekens)'),
 })
 
 export type PersonalInfoData = z.infer<typeof personalInfoSchema>
