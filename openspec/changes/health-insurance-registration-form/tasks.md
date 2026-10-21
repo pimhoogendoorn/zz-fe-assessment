@@ -10,7 +10,7 @@
 - [x] 1.8 Copy `data/insurance-plans.json` to `public/api/insurance-plans.json`
       → **Testable in browser**: `pnpm dev` loads empty Vite app, console passes, Vitest runs green on empty suite.
 
-## 2. Foundation B — Types, Schemas & Secure Input (20 tasks)
+## 2. Foundation B — Types, Schemas & Secure Input (21 tasks)
 
 - [x] 2.9 Define TypeScript interfaces: `PersonalInfo`, `Plan`, `Addon`, `FormState`, `InsuranceApiResponse`
 - [x] 2.10 Write test: `personalSchema` rejects empty firstname
@@ -21,18 +21,18 @@
 - [x] 2.15 Write test: `personalSchema` rejects invalid email format
 - [x] 2.16 Write test: `personalSchema` rejects future dates for dateOfBirth
 - [x] 2.17 Write test: `personalSchema` rejects date of birth less than 18 years ago
-- [x] 2.17 Write test: `personalSchema` rejects invalid date strings
-- [x] 2.18 Write test: `personalSchema` accepts valid data for all fields
-- [x] 2.19 Implement `personalSchema` — make all schema tests pass
-- [x] 2.20 Write test: `personalSchema.parse()` returns typed `PersonalInfo`
-- [x] 2.21 Write test: `personalSchema` trims whitespace before validation (e.g., `"  John  "` → `"John"`)
-- [x] 2.22 Write test: `personalSchema` rejects firstname over 50 chars (`.max(50)`)
-- [x] 2.23 Write test: `personalSchema` rejects lastname over 50 chars (`.max(50)`)
-- [x] 2.24 Write test: `personalSchema` rejects address over 200 chars (`.max(200)`)
-- [x] 2.25 Write test: `personalSchema` rejects email over 254 chars (`.max(254)`)
-- [x] 2.26 Write test: `FormStateSchema` accepts valid FormState with selections
-- [x] 2.27 Write test: `FormStateSchema` rejects FormState without basic insurance selection
-- [x] 2.28 Implement `FormStateSchema` — make all schema tests pass
+- [x] 2.18 Write test: `personalSchema` rejects invalid date strings
+- [x] 2.19 Write test: `personalSchema` accepts valid data for all fields
+- [x] 2.20 Implement `personalSchema` — make all schema tests pass
+- [x] 2.21 Write test: `personalSchema.parse()` returns typed `PersonalInfo`
+- [x] 2.22 Write test: `personalSchema` trims whitespace before validation (e.g., `"  John  "` → `"John"`)
+- [x] 2.23 Write test: `personalSchema` rejects firstname over 50 chars (`.max(50)`)
+- [x] 2.24 Write test: `personalSchema` rejects lastname over 50 chars (`.max(50)`)
+- [x] 2.25 Write test: `personalSchema` rejects address over 200 chars (`.max(200)`)
+- [x] 2.26 Write test: `personalSchema` rejects email over 254 chars (`.max(254)`)
+- [x] 2.27 Write test: `FormStateSchema` accepts valid FormState with selections
+- [x] 2.28 Write test: `FormStateSchema` rejects FormState without basic insurance selection
+- [x] 2.29 Implement `FormStateSchema` — make all schema tests pass
       → **Testable in browser**: `pnpm dev` loads app with Zod schemas importable, no build errors, all unit tests green (run `pnpm test`).
 
 ## 3. Receipt Calculator Stub (12 tasks)
@@ -51,18 +51,22 @@
 - [x] 3.12 Implement `formatPrice` — make all tests pass
       → **Testable in browser**: Hardcode a receipt rendering `€ 145,45 / € 0,00 / € 145,45`. Load page, verify receipt shows mocked values.
 
-## 4. Step 1 — Personal Info Stub (9 tasks)
+## 4. Step 1 — Personal Info Stub (13 tasks)
 
-- [ ] 4.1 Render Step 1 skeleton: 5 input fields, labels, placeholder next button
-- [ ] 4.2 Wire each input to `useForm` with `register`
-- [ ] 4.3 Add inline error display under each field (show on `touched` + `error`)
-- [ ] 4.4 Add Zod resolver (`zodResolver(personalSchema)`) to form
-- [ ] 4.5 Disable next button while form invalid
-- [ ] 4.6 Enable next button when all fields valid
-- [ ] 4.7 Add summary error banner at top (shows when errors > 0)
-- [ ] 4.8 Write tests: renders fields, errors on empty, errors on invalid email, button state, no back button on step 1
-- [ ] 4.9 Implement Step 1 — make all tests pass
-  → **Testable in browser**: Hardcode `currentStep = 1`. Load page, type in fields, observe validation, test next button state.
+- [x] 4.1 Render the initial Step 1 shell with the reusable `Field`, `Label`, `Input`, `ErrorMessage`, and `Button` components
+- [x] 4.2 Wrap the personal-info content in the parent `FormProvider` and `<form>` in `App`
+- [x] 4.3 Wire the `firstname` input to React Hook Form with `register` and `useFormContext`
+- [x] 4.4 Add `zodResolver(personalInfoSchema)` to the parent form
+- [x] 4.5 Disable the next button while the current form state is invalid
+- [x] 4.6 Enable the next button for valid firstname data and submit through the parent form handler
+- [x] 4.7 Render the firstname validation message through the reusable `Input` and `ErrorMessage` components
+- [x] 4.8 Add component and integration tests for rendering firstname, validation state, and successful parent-form submission
+- [ ] 4.9 Add `lastname`, `dateOfBirth`, `email`, and `address` using the same reusable field pattern
+- [ ] 4.10 Restore required validation for every personal-info property in `personalInfoSchema`
+- [ ] 4.11 Add the minimum-age validation test and exact message to the form integration coverage
+- [ ] 4.12 Add the summary error banner for all validation errors and verify the no-back-button behavior on Step 1
+- [ ] 4.13 Expand component and integration tests to cover every field, invalid email, invalid/future/under-18 dates, all button states, and full submission payload
+      → **Testable in browser**: The current vertical slice is testable now: load Step 1, enter a firstname, observe validation, enable the button, and submit. After tasks 4.9–4.13, test the complete five-field Step 1 flow.
 
 ## 5. API Layer & Mock Data (8 tasks)
 
