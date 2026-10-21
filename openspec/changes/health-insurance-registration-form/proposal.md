@@ -13,11 +13,14 @@ A multi-step health insurance registration form is needed to allow users to regi
 - **New**: Skeleton loading states and error handling with retry + contact flow for API fetch failures
 - **New**: Mock API data served from `public/api/insurance-plans.json` for GET, `POST` logs to console
 - **New**: React Hook Form + Zod resolver for type-safe, performant form handling
+- **New**: Incremental form implementation using a parent `FormProvider` and reusable form primitives (`Field`, `Label`, `Input`, `ErrorMessage`, and `Button`)
+- **New**: Personal information is built as a vertical slice: `App` owns the form and submit handler while `PersonalInfo` consumes `useFormContext`; `firstname` is the first implemented field
 - **New**: React Context for cross-step state management
 - **New**: Monitoring error hook (commented out) for Sentry/New Relic integration
 - **New**: Full test suite with Vitest + Testing Library — tests written before implementation (TDD), covering schemas, components, utilities, and context
 - **New**: URL-based step navigation via search params (`?step=personal-details`, `?step=product-selection`, `?step=addons`) with previous-step validation → redirects to prior step if not completed
 - **New**: Secure input handling — Zod `.trim()` on all string fields, `.max()` length constraints, no `dangerouslySetInnerHTML` anywhere
+- **Constraint**: Optional fields in the current personal schema are temporary incremental-development scaffolding. Before Step 1 is complete, `lastname`, `dateOfBirth`, `email`, and `address` SHALL be required again and covered by the full form tests.
 
 ## Capabilities
 
@@ -33,7 +36,7 @@ A multi-step health insurance registration form is needed to allow users to regi
 
 ## Impact
 
-- **Dependencies**: `react`, `react-dom`, `react-hook-form`, `@hookform/resolvers`, `zod`, `vitest`, `@testing-library/react`, `@testing-library/jest-dom`, `@testing-library/user-event`
+- **Dependencies**: `react`, `react-dom`, `react-hook-form`, `@hookform/resolvers`, `zod`, `class-variance-authority`, `tailwind-merge`, `vitest`, `@testing-library/react`, `@testing-library/jest-dom`, `@testing-library/user-event`
 - **APIs**: `GET /api/insurance-plans` (mocked), `POST /api/registration` (console.log stub)
 - **Persistence**: `localStorage` key: `insurance-registration`
-- **Files**: `src/app.tsx`, `src/context/RegistrationContext.tsx`, `src/hooks/useLocalStorage.ts`, `src/lib/api.ts`, `src/lib/schemas.ts`, `src/components/`, `public/api/insurance-plans.json`
+- **Files**: `src/App.tsx`, `src/features/personal-info/PersonalInfo.tsx`, `src/features/personal-info/__tests__/`, `src/components/forms/`, `src/context/RegistrationContext.tsx`, `src/hooks/useLocalStorage.ts`, `src/lib/api.ts`, `src/schemas/`, `src/types/`, `public/api/insurance-plans.json`

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { personalSchema } from '../personal'
+import { personalInfoSchema } from '../personal'
 
 describe('personalSchema additional constraints', () => {
   const baseDate = '1990-05-15'
@@ -15,7 +15,7 @@ describe('personalSchema additional constraints', () => {
   }
 
   it('accepts valid data for all fields', () => {
-    const result = personalSchema.safeParse(validData())
+    const result = personalInfoSchema.safeParse(validData())
     expect(result.success).toBe(true)
     if (result.success) {
       expect(result.data.firstname).toBe('John')
@@ -23,7 +23,7 @@ describe('personalSchema additional constraints', () => {
   })
 
   it('parse() returns typed PersonalInfo', () => {
-    const result = personalSchema.parse(validData())
+    const result = personalInfoSchema.parse(validData())
     expect(typeof result.firstname).toBe('string')
     expect(typeof result.lastname).toBe('string')
     expect(typeof result.dateOfBirth).toBe('string')
@@ -32,12 +32,12 @@ describe('personalSchema additional constraints', () => {
   })
 
   it('trims whitespace before validation', () => {
-    const result = personalSchema.parse(validData())
+    const result = personalInfoSchema.parse(validData())
     expect(result.firstname).toBe('John')
   })
 
   it('rejects firstname over 50 chars', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       ...validData(),
       firstname: 'a'.repeat(51),
     })
@@ -45,7 +45,7 @@ describe('personalSchema additional constraints', () => {
   })
 
   it('rejects lastname over 50 chars', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       ...validData(),
       lastname: 'a'.repeat(51),
     })
@@ -53,7 +53,7 @@ describe('personalSchema additional constraints', () => {
   })
 
   it('rejects address over 200 chars', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       ...validData(),
       address: 'a'.repeat(201),
     })
@@ -61,7 +61,7 @@ describe('personalSchema additional constraints', () => {
   })
 
   it('rejects email over 254 chars', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       ...validData(),
       email: 'a'.repeat(250) + '@a.co',
     })
@@ -69,7 +69,7 @@ describe('personalSchema additional constraints', () => {
   })
 
   it('rejects invalid date strings', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       ...validData(),
       dateOfBirth: 'not-a-date',
     })
