@@ -7,6 +7,14 @@ import { personalInfoSchema } from '@/schemas/personal'
 function App() {
   const methods = useForm<PersonalInfoData>({
     resolver: zodResolver(personalInfoSchema),
+    mode: 'onChange',
+    defaultValues: {
+      firstname: '',
+      lastname: '',
+      dateOfBirth: '',
+      email: '',
+      address: '',
+    },
   })
 
   const { setError, handleSubmit } = methods
