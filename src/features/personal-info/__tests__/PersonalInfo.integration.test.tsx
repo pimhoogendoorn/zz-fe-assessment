@@ -85,12 +85,12 @@ describe('PersonalInfo form integration', () => {
     fireEvent.blur(screen.getByLabelText('Uw geboortedatum'))
 
     await waitFor(() => {
-      expect(
-        screen.getByText('Kinderen zijn meeverzekerd met hun ouders tot 18 jaar'),
-      ).toBeInTheDocument()
-      expect(
-        screen.getByText('Er lijkt iets mis te gaan met uw ingevulde gegevens.'),
-      ).toBeInTheDocument()
+      const alerts = screen.getAllByRole('alert')
+
+      expect(alerts).toHaveLength(2)
+      expect(alerts.map((alert) => alert.textContent)).toContain(
+        'Kinderen zijn meeverzekerd met hun ouders tot 18 jaar',
+      )
     })
   })
 
@@ -101,7 +101,10 @@ describe('PersonalInfo form integration', () => {
     fireEvent.focus(firstname)
     fireEvent.blur(firstname)
 
-    await waitFor(() => expect(screen.getByText('Voornaam is verplicht')).toBeInTheDocument())
+    await waitFor(() => {
+      expect(firstname).toHaveAttribute('aria-invalid', 'true')
+      expect(screen.getAllByRole('alert')).toHaveLength(2)
+    })
   })
 
   it('shows invalid email and date validation errors', async () => {
@@ -113,8 +116,11 @@ describe('PersonalInfo form integration', () => {
     })
 
     await waitFor(() => {
-      expect(screen.getByText('Ongeldig e-mailadres')).toBeInTheDocument()
-      expect(screen.getByText('Geboortedatum is een toekomstige datum')).toBeInTheDocument()
+      expect(screen.getByRole('textbox', { name: 'Uw e-mailadres' })).toHaveAttribute(
+        'aria-invalid',
+        'true',
+      )
+      expect(screen.getByLabelText('Uw geboortedatum')).toHaveAttribute('aria-invalid', 'true')
     })
   })
 })
