@@ -40,7 +40,7 @@ function App() {
     <div className="min-h-screen bg-gray-50 md:flex md:items-center md:justify-center p-2">
       <main className="h-screen">
         <FormProvider {...methods}>
-          <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+          <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off" className="w-full">
             <h1 className="text-xl">Aanmeldformulier Zorg & Zekerheid</h1>
             <PersonalInfo />
           </form>
