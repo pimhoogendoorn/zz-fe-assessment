@@ -6,7 +6,7 @@ const eighteenYearsAgo = new Date(today.getFullYear() - 18, today.getMonth(), to
 const eighteenYearsAgoISO = eighteenYearsAgo.toISOString().split('T')[0]
 const todayISO = today.toISOString().split('T')[0]
 
-export const personalSchema = z.object({
+export const personalInfoSchema = z.object({
   firstname: z
     .string()
     .trim()
@@ -43,4 +43,4 @@ export const personalSchema = z.object({
     .max(200, 'Adres is te lang (max 200 tekens)'),
 })
 
-export type PersonalInfo = z.infer<typeof personalSchema>
+export type PersonalInfoData = z.infer<typeof personalInfoSchema>

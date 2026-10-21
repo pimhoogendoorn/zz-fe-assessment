@@ -1,9 +1,9 @@
 import { describe, it, expect } from 'vitest'
-import { personalSchema } from '../personal'
+import { personalInfoSchema } from '../personal'
 
 describe('personalSchema', () => {
   it('rejects empty firstname', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       firstname: '',
       lastname: 'Doe',
       dateOfBirth: '1990-01-01',
@@ -14,7 +14,7 @@ describe('personalSchema', () => {
   })
 
   it('rejects empty lastname', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       firstname: 'John',
       lastname: '',
       dateOfBirth: '1990-01-01',
@@ -25,7 +25,7 @@ describe('personalSchema', () => {
   })
 
   it('rejects empty dateOfBirth', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       firstname: 'John',
       lastname: 'Doe',
       dateOfBirth: '',
@@ -36,7 +36,7 @@ describe('personalSchema', () => {
   })
 
   it('rejects empty email', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       firstname: 'John',
       lastname: 'Doe',
       dateOfBirth: '1990-01-01',
@@ -47,7 +47,7 @@ describe('personalSchema', () => {
   })
 
   it('rejects empty address', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       firstname: 'John',
       lastname: 'Doe',
       dateOfBirth: '1990-01-01',
@@ -58,7 +58,7 @@ describe('personalSchema', () => {
   })
 
   it('rejects invalid email format', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       firstname: 'John',
       lastname: 'Doe',
       dateOfBirth: '1990-01-01',
@@ -69,7 +69,7 @@ describe('personalSchema', () => {
   })
 
   it('rejects future dates for dateOfBirth', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       firstname: 'John',
       lastname: 'Doe',
       dateOfBirth: '2050-01-01',
@@ -80,7 +80,7 @@ describe('personalSchema', () => {
   })
 
   it('rejects date of birth less than 18 years ago', () => {
-    const result = personalSchema.safeParse({
+    const result = personalInfoSchema.safeParse({
       firstname: 'John',
       lastname: 'Doe',
       dateOfBirth: '2010-06-15',
