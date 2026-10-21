@@ -91,6 +91,7 @@ The choices I have made while planning the project were:
   - Since we do not have a router we can use hashes, searchParams or pushstate.
   - Going for searchParams because they result in normal history entry
   - Not going for hashes because the url is less clean and needs string parsing rather than `URL.searchParams`
+  - Navigating between the first steps would be links. Where we store the formdata in localstorage between the steps. The last step would submit the form. This way the data would be persisted and submitted once. Submitting between steps could lead to half filled formdata to end up in the backend when users started the flow but stopped before the end.
 
 ### Order calculation (Receipt)
 
